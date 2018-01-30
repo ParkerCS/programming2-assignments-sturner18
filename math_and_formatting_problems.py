@@ -4,14 +4,14 @@
 
 #PROBLEM 1 (2pts)
 #Use {}.format() to print 0.000321192 in scientific notation to two decimals
-
+print("{:.2e}".format(0.000321192))
 
 
 #PROBLEM 2 (2pts)
 #You get 8 out of 9 on a quiz.
 #Print 8/9 using {}.format() so that it appears as 88.9%
 
-
+print("{:.1%}".format(8 / 9 ))
 
 #PROBLEM 3 (3pts)
 #Take the following program:
@@ -31,7 +31,8 @@ print("High score: " + str(highscore) )
 #Make sure the print formatting works for any integer from zero to nine million. Do not use any plus sign (+) in your code. 
 #You should only have two double quotes in each print statement.
 
-
+print("Score: {:,}".format(score))
+print("High score: {:,}".format(highscore))
 
 #PROBLEM 4 (5 pts) 
 #Create a program that loops from 1 to 20 and lists the decimal equivalent of their inverse. 
@@ -58,9 +59,8 @@ print("High score: " + str(highscore) )
 #1/20 = 0.05
 
 
-for i in range(1, 20):
-  print(i) # in case you forgot how to use a loop, here's a start
-
+for i in range(1, 21):
+  print("{:.4}".format(1 / i))
 
 
 
@@ -69,9 +69,8 @@ for i in range(1, 20):
 # 3(60x^2 + 3x/9) + 2x - 4/3(x) - sqrt(x)
 # where x = 12.83
 
-
 x = 12.83
-your_answer = 0  # Substitute your equation for the zero
+your_answer =  3 * ((60 * (x ** 2)) + (3 * x) / 9) + (2 * x) - ((4 / 3) * x) - x ** -2 # Substitute your equation for the zero
 print(your_answer)
 
 
@@ -80,7 +79,9 @@ print(your_answer)
 #Shipping costs $4 for the first copy and 75 cents for each additional copy.
 # Calculate the total wholesale costs for 68 copies formatted (using {}.format()) to the nearest penny.
 
-
+price_of_book = 27.95
+total_cost = ((((price_of_book / 2) + .75) * 68) + 4)
+print("{:.2f}".format(total_cost))
 
 
 #PROBLEM 3 (What is this, the ACT? - 5pts)
@@ -93,8 +94,8 @@ chair_price = 189.99
 tax_percent = 0.095
 units = 8
 
-
-
+total_price = (units * chair_price) + ((units * chair_price) * tax_percent)
+print(round(total_price, 2))
 
 ##PROBLEM 4 (Variable Swap Logic Problem- 2pts)
 # Can you think of a way to swap the values of two variables that does not
@@ -110,9 +111,8 @@ print( "a =", a, "and b =", b)
 a += b # this is the first line to help you out
 # add two more lines of code here to cause swapping of a and b
 print( "a =", a, "and b =", b)
-
-
-
+b = a - b
+a = a - b
 
 #####PROBLEM 5 (Coin counter - 5pts)
 # Write code that classifies a given amount of money (which you store in a variable named count),
@@ -124,3 +124,12 @@ print( "a =", a, "and b =", b)
 # and so on for nickels and pennies.
 # The result is that you express the amount as the minimum number of coins needed.
 
+count = 1.68
+count *= 100
+dollar = count // 100
+quarter = (count - dollar * 100) // 25
+dime = (count - (dollar * 100) - (quarter * 25)) // 10
+nickel = (count - (dollar * 100) - (quarter * 25) - (dime * 10))  // 5
+pennie = (count - (dollar * 100) - (quarter * 25) - (dime * 10) - (nickel * 5)) // 1
+
+print("Dollars: {} \nQuarters: {} \nDimes: {} \nNickels: {} \nPennies: {}".format(dollar, quarter, dime, nickel, pennie))
