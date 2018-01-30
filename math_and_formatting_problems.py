@@ -70,7 +70,7 @@ for i in range(1, 21):
 # where x = 12.83
 
 x = 12.83
-your_answer =  3 * ((60 * (x ** 2)) + (3 * x) / 9) + (2 * x) - ((4 / 3) * x) - x ** -2 # Substitute your equation for the zero
+your_answer =  3 * ((60 * (x ** 2)) + ((3 * x) / 9)) + ((2 * x) - ((4 / 3) * x)) - x ** -2 # Substitute your equation for the zero
 print(your_answer)
 
 
