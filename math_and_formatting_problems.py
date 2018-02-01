@@ -11,7 +11,7 @@ print("{:.2e}".format(0.000321192))
 #You get 8 out of 9 on a quiz.
 #Print 8/9 using {}.format() so that it appears as 88.9%
 
-print("{:.1%}".format(8 / 9 ))
+print("{:.1%}".format(8 / 9))
 
 #PROBLEM 3 (3pts)
 #Take the following program:
@@ -31,8 +31,8 @@ print("High score: " + str(highscore) )
 #Make sure the print formatting works for any integer from zero to nine million. Do not use any plus sign (+) in your code. 
 #You should only have two double quotes in each print statement.
 
-print("Score: {:,}".format(score))
-print("High score: {:,}".format(highscore))
+print("Score: {:>12,}".format(score))
+print("High score: {:>19,}".format(highscore))
 
 #PROBLEM 4 (5 pts) 
 #Create a program that loops from 1 to 20 and lists the decimal equivalent of their inverse. 
