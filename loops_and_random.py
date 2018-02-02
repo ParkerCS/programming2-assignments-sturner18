@@ -1,5 +1,5 @@
 # LOOPS (16pts TOTAL)
-# Simone Turner
+# Simone Turner - Period B
 
 # PROBLEM 1 (Fibonacci - 4pts)
 ## The Fibonacci sequence is a sequence of numbers that starts with 1, followed by 1 again.
