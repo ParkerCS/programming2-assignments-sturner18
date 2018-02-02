@@ -44,6 +44,8 @@ for i in range(700):
                 print("\n", roll1, "\n", roll2, "\n", roll3, "\n", roll4, "\n", roll5, "\n", roll6)
                 break
 
+                # how do you determine probability?
+
 # PROBLEM 3 (Number Puzzler - 6pts)
 # A, B, C, and D are all different digits.
 # The number DCBA is equal to 4 times the number ABCD.
@@ -55,8 +57,8 @@ for a in range(1, 10):
     for b in range(0, 10):
         for c in range(0, 10):
             for d in range(1, 10):
-                first_number = (int(str(a) + str(b) + str(c) + str(d))) * 4
-                second_number = int(str(d) +str(c) +str(b) + str(a))
+                first_number = (int(str(a)) * int(str(b)) * int(str(c)) * int(str(d))) * 4
+                second_number = int(str(d)) * int(str(c)) * int(str(b)) * int(str(a))
                 if first_number == second_number:
                     print("Digits =", first_number / 4)
 
