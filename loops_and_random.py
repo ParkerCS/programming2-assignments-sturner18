@@ -14,13 +14,13 @@ num3 = 2
 print(num1)
 print(num2)
 
-for i in range(0, 1001):
+for i in range(1, 1001):
     num3 = num1 + num2
     num1 = num2
     num2 = num3
-    print(num3)
     if num3 > 1000:
         break
+    print(num3)
 
 # PROBLEM 2 (Dice Sequence - 6pts)
 # You roll five six-sided dice, one by one.
@@ -29,9 +29,10 @@ for i in range(0, 1001):
 # For example, the sequence “1, 1, 4, 4, 6” is a success,
 # but “1, 1, 4, 3, 6” is not. Determine the
 # probability of success using a simulation of a large number of trials.
-from random import *
 
-for i in range(700):
+from random import *
+success = 0
+for i in range(2000):
     roll1 = randrange(0, 7)
     roll2 = randrange(0, 7)
     if roll2 >= roll1:
@@ -41,10 +42,12 @@ for i in range(700):
             roll5 = randrange(0, 7)
             roll6 = randrange(0, 7)
             if roll6 >= roll5 and roll5 >= roll4:
+                success += 1
                 print("\n", roll1, "\n", roll2, "\n", roll3, "\n", roll4, "\n", roll5, "\n", roll6)
-                break
 
-                # how do you determine probability?
+print("Success = {}".format(success))
+probability = success / 2000
+print("Probability = {:.2f}%".format(probability * 100))
 
 # PROBLEM 3 (Number Puzzler - 6pts)
 # A, B, C, and D are all different digits.
@@ -53,12 +56,12 @@ for i in range(700):
 # Note: to make ABCD and DCBA conventional numbers, neither A nor D can be zero.
 # Use a quadruple-nested loop to solve.
 
-for a in range(1, 10):
-    for b in range(0, 10):
-        for c in range(0, 10):
-            for d in range(1, 10):
-                first_number = (int(str(a)) * int(str(b)) * int(str(c)) * int(str(d))) * 4
-                second_number = int(str(d)) * int(str(c)) * int(str(b)) * int(str(a))
-                if first_number == second_number:
-                    print("Digits =", first_number / 4)
 
+for a in range(1, 10):
+    for b in range(10):
+        for c in range(10):
+            for d in range(1, 10):
+                num = str(a) + str(b) + str(c) + str(d)
+                num_reverse = str(d) + str(c) + str(b) + str(a)
+                if int(num_reverse) == ((int(num) * 4)):
+                    print("Answer: {} and {}".format(num, num_reverse))
