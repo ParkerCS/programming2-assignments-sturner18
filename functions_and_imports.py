@@ -55,3 +55,8 @@ import_me.information("Simone Turner", "HappyCoding")
 # Create a main program using the format if __name__ == "__main__": 
 # Place every call from problems 1 through 5 into this program.
 
+if __name__ == "__main__":
+    letters("HeLLo WorLD")
+    number(4, 6, 8)
+    print(sum_product(3, 4))
+    import_me.information("Simone Turner", "HappyCoding")
