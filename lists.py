@@ -67,11 +67,61 @@ print(shuffle)
 # pass to a function as an argument if the function needs it.
 # I also use a function opponent(), that takes the player as argument and returns
 # the opponent. I use that to switch players after each move.
-while True:
-    row = input("Input row: ")
-    column = input("Input column: ")
-        if row or column == False:
-            
+done = False
+player = "X"
+board = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]]
+
+def draw_board(board):
+    for row in board:
+        for column in row:
+            print(column, end = "")
+        print()
+
+def check_win(board, player):
+    if board[0][0] == player  and board[0][1] == player and  board[0][2] == player:
+        return True
+    if board[1][0] == player and board[1][1] == player and board[1][2] == player:
+        return True
+    if board[2][0] == player and board[2][1] == player and board[2][2] == player:
+        return True
+    if board[0][0] == player and board[1][0] == player and board[2][0] == player:
+        return True
+    if board[0][1] == player and board[1][1] == player and board[2][1] == player:
+        return True
+    if board[0][2] == player and board[1][2] == player and board[2][2] == player:
+        return True
+    if board[0][0] == player and board[1][1] == player and board[2][2] == player:
+        return True
+    if board[0][2] == player and board[1][1] == player and board[2][0] == player:
+        return True
+
+def check_full(board):
+    for row in board:
+        if " " in row:
+            print("There is still space on the board.")
+            return False
+
+
+while not done:
+    row = int(input("Player" + player + "Enter Row 1, 2, or 3: "))
+    column = int(input("Player" + player + "Enter Column 1, 2, or 3: "))
+    if board[row-1][column-1] == " ":
+        board[row-1][column-1] = player
+    else:
+        print("That space is taken.")
+        continue
+    draw_board(board)
+    if check_win(board, player):
+        print(player, "wins!")
+        break
+    if check_full(board):
+        print("Draw!")
+        break
+    if player == "X":
+        player = "O"
+    else:
+        player = "X"
+
 
 # The main program will be something along the lines of (in pseudo-code):
 # display board
