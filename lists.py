@@ -122,7 +122,6 @@ while not done:
     else:
         player = "X"
 
-
 # The main program will be something along the lines of (in pseudo-code):
 # display board
 # while True:
