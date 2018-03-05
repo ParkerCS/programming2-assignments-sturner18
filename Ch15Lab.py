@@ -45,7 +45,7 @@ print(" --- Binary Search ---" )
 
 alice_in_wonderland = open('search_files/AliceInWonderland200.txt')
 
-def binary_search(key, dictionary_list):
+def binary_search(key, dictionary_list, line_count):
 
     lower_bound = 0
     upper_bound = len(dictionary_list) - 1
@@ -60,10 +60,13 @@ def binary_search(key, dictionary_list):
         else:
             found = True
 
-    if not found:
-        print(key, "on line", middle_pos, "is not in the dictionary.")
 
+    if not found:
+        print(key, "on line", line_count , "is not in the dictionary.")
+
+line_count = 0
 for line in alice_in_wonderland:
     words = split_line(line)
+    line_count += 1
     for word in words:
-        binary_search(word.upper(), dictionary_list)
+        binary_search(word.upper(), dictionary_list, line_count)
