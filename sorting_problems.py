@@ -101,12 +101,12 @@ def insertion_sort(my_list):
 
         my_list[scan_pos + 1] = key_value
 
-    print("Bid Count:", big_count2)
+    print("Big Count:", big_count2)
     print("Small Count:", small_count2)
     return my_list
 
 sort_me4 = insertion_sort(sort_me4)
-print(sort_me4)
+print("Sorted List:", sort_me4)
 
 #  ---- OR ----
 
