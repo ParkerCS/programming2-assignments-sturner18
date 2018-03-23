@@ -1,4 +1,4 @@
-# SIMONE TURNER
+# SIMONE TURNER - PROGRAMMING 2
 # imports
 import csv
 import matplotlib.pyplot as plt
