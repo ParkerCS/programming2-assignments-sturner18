@@ -3,9 +3,11 @@
 import csv
 import matplotlib.pyplot as plt
 
-# MATPLOTLIB PROBLEM # 1
+# MAT PLOT LIB PROBLEM # 1
 
 # Chicago Public Library Computer Usage (15pts)
+
+# Chicago Public Library Visitors (15pts)
 # open and read in the "Libraries_-_2018_Visitors_by_Location.csv" file into a list (use file located in the file folder, read in using csv library).
 with open("files/Libraries_-_2017_Visitors_by_Location.csv") as f:
     reader = csv.reader(f)
@@ -121,7 +123,7 @@ rail = [int(x) for x in rail]
 total = [x[4] for x in data][1:]
 total = [int(x) for x in total]
 
-# Make a plot of paratransit, bus, rail, and total numbers by year (all on the same graph)
+# Make a plot of para transit, bus, rail, and total numbers by year (all on the same graph)
 plt.figure(2, tight_layout=True)
 
 plt.plot(year_numbers, bus, label="Bus")
