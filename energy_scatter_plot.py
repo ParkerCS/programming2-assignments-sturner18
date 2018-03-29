@@ -54,7 +54,7 @@ for i in range(len(schools_to_plot)):
         except:
              print(data[i][0], "has no data.")
 
-plt.figure(1, figsize=(12, 7))
+plt.figure(1, figsize=(12, 7), facecolor="lightblue")
 
 plt.scatter(square_footage, ghg_emissions, s=4, c="red")
 plt.title("Energy Efficiency of Chicago Schools")
