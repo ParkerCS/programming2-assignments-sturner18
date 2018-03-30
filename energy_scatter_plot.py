@@ -54,21 +54,21 @@ for i in range(len(schools_to_plot)):
         except:
              print(data[i][0], "has no data.")
 
-plt.figure(1, figsize=(12, 7), facecolor="lightblue")
+plt.figure(1, figsize=(12, 7), facecolor="lightpink")
 
-plt.scatter(square_footage, ghg_emissions, s=4, c="red")
-plt.title("Energy Efficiency of Chicago Schools")
-plt.xlabel("School Square Footage")
-plt.ylabel("Green House Gas Emissions")
+plt.scatter(square_footage, ghg_emissions, s=4, c="red", marker='+')
+plt.title("Energy Efficiency of Chicago Schools", color='red', fontsize=25)
+plt.xlabel("School Square Footage", color='red')
+plt.ylabel("Green House Gas Emissions", color='red')
 
 m, b = np.polyfit(square_footage, ghg_emissions, 1) # 1 for linear, returns slope and y intercept
 
 x = [0, 700000]
 y = [m * point + b for point in x]
-plt.plot(x, y, color='blue')
+plt.plot(x, y, color='orange')
 
 for i in range(len(school_names)):
-    plt.annotate(school_names[i], xy=(square_footage[i], ghg_emissions[i])) # text, xy =()
+    plt.annotate(school_names[i], xy=(square_footage[i], ghg_emissions[i]), fontsize=8) # text, xy =()
 
 plt.show()
 
