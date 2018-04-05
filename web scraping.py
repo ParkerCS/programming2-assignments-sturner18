@@ -5,10 +5,24 @@
 # Use BeautifulSoup and requests to grab the text contents of last 5 tweetslocated on the twitter page you chose.
 # Print the tweets in a nicely formatted way.
 # Have fun.  Again, nothing explicit.
+from bs4 import BeautifulSoup
+import requests
 
+url = "https://twitter.com/barackobama?lang=en"
+page = requests.get(url)
 
+soup = BeautifulSoup(page.text, "html.parser")
+# print(soup.prettify())
 
+tweets = soup.findAll("p", class_="tweet-text")
+# print(tweets)
+# for tweet in tweets:
+    # print("\n")
+    # print(tweet.text)
 
+for i in range(5):
+    print("\n")
+    print(tweets[i].text.strip())
 
 # (20pts)
 # Below is a link to a 10-day weather forecast at weather.com
@@ -22,3 +36,39 @@
 # Wednesday, April 4 will be Partly Cloudy/Windy with a High of 37 degrees and a low of 25, humidity at 52%.  There is 0% chance of rain with winds out of the WNW at 22 mph.
 
 url = "https://weather.com/weather/tenday/l/Chicago+IL+USIL0225:1:US"
+page = requests.get(url)
+
+soup = BeautifulSoup(page.text, "html.parser")
+
+days_list = []
+days = soup.findAll(class_="twc-sticky-col")
+for day in days:
+    days_list.append(day.text.strip())
+
+descriptions_list = []
+descriptions = soup.findAll(class_="description")
+for description in descriptions:
+    descriptions_list.append(description.text.strip())
+
+temps_list = []
+temps = soup.findAll(class_="temp")
+for temp in temps:
+    temps_list.append(temp.text.strip())
+
+percips_list = []
+precips = soup.findAll(class_="precip")
+for precip in precips:
+    percips_list.append(precip.text.strip())
+
+winds_list = []
+winds = soup.findAll(class_="wind")
+for wind in winds:
+    winds_list.append(wind.text.strip())
+
+humidity_list = []
+humidity = soup.findAll(class_="humidity")
+for hum in humidity:
+    humidity_list.append(hum.text.strip())
+
+for i in range(len(days_list)):
+    print("\n", days_list[i] + ",", "will be", descriptions_list[i], "with a", percips_list[i], "of precipitation" + ".", "The wind will be traveling", winds_list[i], "and a", humidity_list[i], "humidity, and a temperature of", temps_list[i] + ".", "\n")
