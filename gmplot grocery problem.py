@@ -23,13 +23,11 @@ with open("files/Grocery_Stores_-_2013.csv") as f:
 
 print(data.pop(0))
 
-store_names = data[0]
-
 index = 0
-while index < len(store_names):
+while index < len(data[index][0]):
 
-    if "LIQUOR" in data[0] or "WALGREEN" in data[0]:
-        del data[0]
+    if "LIQUOR" in data[index][0] or "WALGREEN" in data[index][0]:
+        del data[index][0]
     index += 1
 
 lats = [float(x[-3]) for x in data]
