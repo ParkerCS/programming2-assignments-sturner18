@@ -1,3 +1,8 @@
+import sys
+from PyQt5.QtCore import Qt
+from PyQt5.QtWidgets import *
+from PyQt5.QtGui import *
+
 #  Make a desktop calculator app with pyqt  (40pts)
 #  Calculator will have the following functions and buttons. 
 #     Answer label where your equation and answer will appear.  It will be nicely formatted and update properly with every button push. (10pts)
