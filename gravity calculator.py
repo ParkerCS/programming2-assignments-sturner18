@@ -1,7 +1,10 @@
+# Simone's Gravity Calculator
+
 import sys
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
+
 # Universal Gravity Calculator (30pts)
 # In physics, the force of gravity between two objects
 # can be calculated using the equation:
@@ -44,6 +47,9 @@ class Window(QWidget):
         self.labelC = QLabel("Center to Center Distance Between the Objects:")
         self.grid.addWidget(self.labelC, 4, 1, 1, 1)
 
+        self.labelD = QLabel()
+        self.grid.addWidget(self.labelD, 6, 1, 1, 1)
+
         self.sideA = QLineEdit()
         self.grid.addWidget(self.sideA, 2, 2, 1, 1)
 
@@ -63,18 +69,36 @@ class Window(QWidget):
         self.calc.clicked.connect(self.find_hyp)
 
         # Set Style
+        self.set_style()
+
+        # made background color light pink
+        # made text boxes white
+        # made labels red
+        # made font comic sans
+        # made font size larger
+        # changed width of boxes 
 
         # Draw
         self.show()
 
-    def find_hyp(self):
-        m1 = float(self.sideA.text())
-        m2 = float(self.sideB.text())
-        r = float(self.sideC.text())
-        G = 6.67e-11
-        F = G * (m1 * m2) / (r ** 2)
-        self.answer.setText(str(F))
+    def set_style(self):
+        style_sheet = "pyqt gravity calc.css"
+        with open(style_sheet) as f:
+            self.setStyleSheet(f.read())
 
+
+    def find_hyp(self):
+        self.labelD.setText(" ")
+        try:
+            m1 = float(self.sideA.text())
+            m2 = float(self.sideB.text())
+            r = float(self.sideC.text())
+            G = 6.67e-11
+            F = G * (m1 * m2) / (r ** 2)
+            self.answer.setText(str(F))
+
+        except:
+            self.labelD.setText("Try again! The values you chose as inputs were invalid.")
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
