@@ -16,3 +16,19 @@ from PyQt5.QtGui import *
 #     Add one or more additional functional button to your calculator (square, sqrt, pi, memory, trig, or whatever you choose) (3pts)
 
 #  Model your calculator after the built in calc on your operating system.  (minus the +/- and % buttons)
+class Window(QWidget):
+    def __init__(self):
+        super().__init__()
+        # Layout
+
+        # Widgets
+
+        # Signals and Slots
+
+        # Draw
+        self.show()
+
+if __name__ == "__main__":
+    app = QApplication(sys.argv)
+    gui = Window()
+    sys.exit(app.exec())

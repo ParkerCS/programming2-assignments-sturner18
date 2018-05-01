@@ -1,5 +1,6 @@
 QWidget{
     background-color: "light pink";
+
 }
 
 QLineEdit{
@@ -16,6 +17,5 @@ QLabel{
 
 QLineEdit {
     width: 150px;
-
 
 }

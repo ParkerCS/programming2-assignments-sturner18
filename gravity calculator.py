@@ -66,7 +66,7 @@ class Window(QWidget):
         self.grid.addWidget(self.answer, 5, 2, 1, 1)
 
         # Signals and slots
-        self.calc.clicked.connect(self.find_hyp)
+        self.calc.clicked.connect(self.find_gravity)
 
         # Set Style
         self.set_style()
@@ -76,7 +76,7 @@ class Window(QWidget):
         # made labels red
         # made font comic sans
         # made font size larger
-        # changed width of boxes 
+        # changed width of boxes
 
         # Draw
         self.show()
@@ -87,7 +87,7 @@ class Window(QWidget):
             self.setStyleSheet(f.read())
 
 
-    def find_hyp(self):
+    def find_gravity(self):
         self.labelD.setText(" ")
         try:
             m1 = float(self.sideA.text())
