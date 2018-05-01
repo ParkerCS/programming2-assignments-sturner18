@@ -1,3 +1,5 @@
+# Simone's Desktop Calculator
+
 import sys
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import *

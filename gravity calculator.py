@@ -38,13 +38,13 @@ class Window(QWidget):
         self.title = QLabel("Gravity Calculator")
         self.grid.addWidget(self.title, 1, 1, 1, 1)
 
-        self.labelA = QLabel("Mass of First Object:")
+        self.labelA = QLabel("Mass of First Object: (kg)")
         self.grid.addWidget(self.labelA, 2, 1, 1, 1)
 
-        self.labelB = QLabel("Mass of Second Object:")
+        self.labelB = QLabel("Mass of Second Object: (kg)")
         self.grid.addWidget(self.labelB, 3, 1, 1, 1)
 
-        self.labelC = QLabel("Center to Center Distance Between the Objects:")
+        self.labelC = QLabel("Center to Center Distance Between the Objects: (m)")
         self.grid.addWidget(self.labelC, 4, 1, 1, 1)
 
         self.labelD = QLabel()
@@ -59,7 +59,7 @@ class Window(QWidget):
         self.sideC = QLineEdit()
         self.grid.addWidget(self.sideC, 4, 2, 1, 1)
 
-        self.calc = QPushButton("Calculate")
+        self.calc = QPushButton("Calculate in Newtons")
         self.grid.addWidget(self.calc, 5, 1, 1, 1)
 
         self.answer = QLabel("0")
