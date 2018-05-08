@@ -21,14 +21,101 @@ from PyQt5.QtGui import *
 class Window(QWidget):
     def __init__(self):
         super().__init__()
+        self.equation = ""
+
         # Layout
+        self.grid = QGridLayout()
+        self.setLayout(self.grid)
+        self.setGeometry(10, 10, 350, 500)
 
         # Widgets
+        self.display = QLabel("")
+        self.grid.addWidget(self.display, 0, 0, 1, 4)
+
+        self.button1= QPushButton("AC")
+        self.grid.addWidget(self.button1, 1, 0, 1, 1)
+
+        self.button2 = QPushButton("(-)")
+        self.grid.addWidget(self.button2, 1, 1 , 1, 1)
+
+        self.button3 = QPushButton("%")
+        self.grid.addWidget(self.button3, 1, 2, 1, 1)
+
+        self.button4 = QPushButton("/")
+        self.grid.addWidget(self.button4, 1, 3, 1, 1)
+
+        self.button5 = QPushButton("7")
+        self.grid.addWidget(self.button5, 2, 0, 1, 1)
+
+        self.button6 = QPushButton("8")
+        self.grid.addWidget(self.button6, 2, 1, 1, 1)
+
+        self.button7 = QPushButton("9")
+        self.grid.addWidget(self.button7, 2, 2, 1, 1)
+
+        self.button8 = QPushButton("x")
+        self.grid.addWidget(self.button8, 2, 3, 1, 1)
+
+        self.button9 = QPushButton("4")
+        self.grid.addWidget(self.button9, 3, 0, 1, 1)
+
+        self.button10 = QPushButton("5")
+        self.grid.addWidget(self.button10, 3, 1, 1, 1)
+
+        self.button11 = QPushButton("6")
+        self.grid.addWidget(self.button11, 3, 2, 1, 1)
+
+        self.button12 = QPushButton("-")
+        self.grid.addWidget(self.button12, 3, 3, 1, 1)
+
+        self.button13 = QPushButton("1")
+        self.grid.addWidget(self.button13, 4, 0, 1, 1)
+
+        self.button14 = QPushButton("2")
+        self.grid.addWidget(self.button14, 4, 1, 1, 1)
+
+        self.button15 = QPushButton("3")
+        self.grid.addWidget(self.button15, 4, 2, 1, 1)
+
+        self.button16 = QPushButton("+")
+        self.grid.addWidget(self.button16, 4, 3, 1, 1)
+
+        self.button17 = QPushButton("0")
+        self.grid.addWidget(self.button17, 5, 0, 1, 2)
+
+        self.button18 = QPushButton(".")
+        self.grid.addWidget(self.button18, 5, 2, 1, 1)
+
+        self.button19 = QPushButton("=")
+        self.grid.addWidget(self.button19, 5, 3, 1, 1)
 
         # Signals and Slots
+        self.button5.clicked.connect(lambda: self.concat("7"))
+        self.button6.clicked.connect(lambda: self.concat("8"))
+        self.button7.clicked.connect(lambda: self.concat("9"))
+
+        self.button9.clicked.connect(lambda: self.concat("4"))
+        self.button10.clicked.connect(lambda: self.concat("5"))
+        self.button11.clicked.connect(lambda: self.concat("6"))
+
+        self.button13.clicked.connect(lambda: self.concat("1"))
+        self.button14.clicked.connect(lambda: self.concat("2"))
+        self.button15.clicked.connect(lambda: self.concat("3"))
+
+        self.button17.clicked.connect(lambda: self.concat("0"))
+
+        self.button1.clicked.connect(lambda: self.concat("0"))
+
+
+
 
         # Draw
         self.show()
+        def concat(self, val):
+            self.equation += val
+            self.display.setText(self.equation)
+
+
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
