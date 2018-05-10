@@ -6,19 +6,19 @@ QPushButton {
     font-size: 25px;
     padding: 12px;
 
-}
-
-QPushButton#basicfunc {
-    background-color: #FE860D;
-
-
-}
-
 QLabel {
     background-color: #6E6E6D;
     color: "white";
     font-size; 25px;
     padding: 8px;
+
+
+}
+
+}
+
+QPushButton#basicfunc {
+    background-color: #FE860D;
 
 
 }
