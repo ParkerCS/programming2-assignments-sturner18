@@ -90,6 +90,9 @@ class Window(QWidget):
         self.grid.addWidget(self.button19, 5, 3, 1, 1)
 
         # Signals and Slots
+        self.button1.clicked.connect(self.ac)
+
+
         self.button5.clicked.connect(lambda: self.concat("7"))
         self.button6.clicked.connect(lambda: self.concat("8"))
         self.button7.clicked.connect(lambda: self.concat("9"))
@@ -106,15 +109,41 @@ class Window(QWidget):
 
         self.button1.clicked.connect(lambda: self.concat("0"))
 
+        self.button2.clicked.connect(lambda: self.concat("* (-1)"))
+        self.button3.clicked.connect(lambda: self.concat("/ 10"))
+        self.button4.clicked.connect(lambda: self.concat("/"))
 
+        self.button8.clicked.connect(lambda: self.concat("*"))
 
+        self.button12.clicked.connect(lambda: self.concat("-"))
+
+        self.button16.clicked.connect(lambda: self.concat("+"))
+
+        self.button18.clicked.connect(lambda: self.concat("."))
+
+        self.button19.clicked.connect(self.equal)
+
+        self.set_style()
 
         # Draw
         self.show()
-        def concat(self, val):
-            self.equation += val
-            self.display.setText(self.equation)
+    def concat(self, val):
+        self.equation += val
+        self.display.setText(self.equation)
 
+    def set_style(self):
+        style_file = "desktopcalc.css"
+        with open(style_file) as f:
+            self.setStyleSheet(f.read())
+
+    def ac(self):
+        self.equation = ""
+        self.display.setText(self.equation)
+
+
+    def equal(self):
+        self.equation = str(eval(self.equation))
+        self.display.setText(self.equation)
 
 
 if __name__ == "__main__":
